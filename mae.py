@@ -41,10 +41,12 @@ def getMAE():
     with open(args.filename) as infile, open('temp.txt', 'w') as outfile:
         copy = False
         for line in infile:
-            if line.strip() == "//startMAE":
+            #if line.strip() == "//startMAE":
+            if line.strip() == "static Transition stateMachine[NB_STATE][NB_EVENT] = {":
                 copy = True
                 continue
-            elif line.strip() == "//endMAE":
+            #elif line.strip() == "//endMAE":
+            elif line.strip() == "};":
                 copy = False
                 continue
             elif copy:
